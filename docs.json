@@ -1,122 +1,191 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Aleo Network",
+  "theme": "aspen",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#0047FF",
+    "light": "#4D8CFF",
+    "dark": "#002B99"
   },
-  "favicon": "/favicon.svg",
+  "navbar": {
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/AleoNet/welcome"
+    }
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/AleoNet/welcome",
+      "discord": "https://discord.gg/aleo",
+      "twitter": "https://twitter.com/aleohq",
+      "website": "https://aleo.org"
+    }
+  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Getting Started",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Introduction",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "getting-started",
+              "installation",
+              "how-to-get-help"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Quick Start",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "quick-start/your-first-program",
+              "quick-start/development-environment"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Concepts",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Fundamentals",
             "pages": [
-              "api-reference/introduction"
+              "concepts/fundamentals/accounts",
+              "concepts/fundamentals/programs",
+              "concepts/fundamentals/records",
+              "concepts/fundamentals/transactions",
+              "concepts/fundamentals/transaction-fees",
+              "concepts/fundamentals/transitions",
+              "concepts/fundamentals/blocks",
+              "concepts/fundamentals/public-private",
+              "concepts/fundamentals/async",
+              "concepts/fundamentals/credits"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Network",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "concepts/network/aleo-network",
+              "concepts/network/core-architecture",
+              "concepts/network/snarkos",
+              "concepts/network/snarkvm",
+              "concepts/network/validators",
+              "concepts/network/provers",
+              "concepts/network/client",
+              "concepts/network/consensus",
+              "concepts/network/staking"
+            ]
+          },
+          {
+            "group": "Advanced",
+            "pages": [
+              "concepts/advanced/overview",
+              "concepts/advanced/intro-to-zksnark",
+              "concepts/advanced/aleo-account-keys",
+              "concepts/advanced/r1cs",
+              "concepts/advanced/inclusion-proof",
+              "concepts/advanced/aleo-curves/overview",
+              "concepts/advanced/aleo-curves/edwards-bls12",
+              "concepts/advanced/aleo-curves/bls12-377"
+            ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "concepts/specifications",
+              "concepts/audits"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Aleo Instructions",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "aleo/overview",
+              "aleo/installation",
+              "aleo/tooling"
+            ]
+          },
+          {
+            "group": "Language",
+            "pages": [
+              "aleo/program-structure",
+              "aleo/language-guide",
+              "aleo/grammar"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "aleo/opcodes",
+              "aleo/operands"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "SDK",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "sdk/overview",
+              "sdk/create-leo-app"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "sdk/guides/getting-started",
+              "sdk/guides/create-account",
+              "sdk/guides/deploy-programs",
+              "sdk/guides/execute-programs",
+              "sdk/guides/transfer-credits",
+              "sdk/guides/managing-state",
+              "sdk/guides/querying-network",
+              "sdk/guides/hash-functions"
+            ]
+          },
+          {
+            "group": "Services",
+            "pages": [
+              "sdk/delegate-proving",
+              "sdk/record-scanning"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "sdk/typescript-reference",
+              "sdk/wasm-reference",
+              "sdk/api-specification"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Development",
+            "pages": [
+              "guides/program-upgradability",
+              "guides/solidity-to-leo",
+              "guides/standards"
+            ]
+          },
+          {
+            "group": "Community",
+            "pages": [
+              "guides/contributing",
+              "guides/faqs"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+    ]
   }
 }

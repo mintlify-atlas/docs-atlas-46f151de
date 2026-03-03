@@ -1,0 +1,318 @@
+---
+title: Installation
+description: Install Leo and SnarkOS to start building privacy-preserving applications on Aleo
+---
+
+# Installation
+
+This guide will walk you through installing the essential tools for developing Aleo applications locally.
+
+## Prerequisites
+
+Before installing Aleo development tools, ensure you have the following prerequisites installed on your system.
+
+### Git
+
+Git is required to clone repositories and manage source code.
+
+**Install Git**: [bit.ly/start-git](https://bit.ly/start-git)
+
+<Tip>
+Verify your Git installation by running `git --version` in your terminal.
+</Tip>
+
+### Rust
+
+Rust is required to build Leo and SnarkOS from source. Aleo requires Rust v1.79 or later.
+
+**Install Rust**: [bit.ly/start-rust](https://bit.ly/start-rust)
+
+<CodeGroup>
+```bash macOS/Linux
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+```bash Windows
+# Visit https://rustup.rs and download the installer
+```
+</CodeGroup>
+
+After installation, restart your terminal and verify:
+
+```bash
+rustc --version
+cargo --version
+```
+
+## Installing Leo
+
+Leo is the primary programming language for writing Aleo applications.
+
+<Steps>
+  <Step title="Clone the Leo Repository">
+    Download the Leo source code and initialize submodules:
+    
+    ```bash
+    git clone --recurse-submodules https://github.com/ProvableHQ/leo
+    cd leo
+    ```
+  </Step>
+  
+  <Step title="Build and Install Leo">
+    Use Cargo to build and install Leo globally:
+    
+    ```bash
+    cargo install --path .
+    ```
+    
+    <Note>
+    This may take several minutes as it compiles Leo and all dependencies.
+    </Note>
+  </Step>
+  
+  <Step title="Verify Installation">
+    Confirm Leo is installed correctly:
+    
+    ```bash
+    leo --version
+    ```
+    
+    You should see output similar to:
+    
+    ```
+    Leo ✅ (version X.X.X)
+    ```
+  </Step>
+  
+  <Step title="Check Available Commands">
+    View all available Leo commands:
+    
+    ```bash
+    leo
+    ```
+    
+    This displays the Leo CLI help menu with all available commands.
+  </Step>
+</Steps>
+
+### Updating Leo
+
+Keep Leo up to date with the latest features and bug fixes:
+
+```bash
+leo update
+```
+
+To check your current version:
+
+```bash
+leo --version
+```
+
+### IDE Support for Leo
+
+Enhance your development experience with syntax highlighting and language support for Leo.
+
+<CardGroup cols={3}>
+  <Card title="Visual Studio Code" icon="code">
+    Install the [Leo extension](https://docs.leo-lang.org/getting_started/ide#plugins) from the VS Code marketplace
+  </Card>
+  
+  <Card title="Sublime Text" icon="file-code">
+    Install Leo syntax highlighting for [Sublime Text](https://docs.leo-lang.org/getting_started/ide#plugins)
+  </Card>
+  
+  <Card title="IntelliJ IDEA" icon="code">
+    Install the Leo plugin for [IntelliJ](https://docs.leo-lang.org/getting_started/ide#plugins)
+  </Card>
+</CardGroup>
+
+<Tip>
+For detailed IDE setup instructions, visit the [Tooling for Leo](https://docs.leo-lang.org/getting_started/ide#plugins) guide.
+</Tip>
+
+## Installing SnarkOS
+
+SnarkOS is the node software for the Aleo network, allowing you to run validators, provers, and clients.
+
+### Additional Prerequisites for Windows
+
+<Warning>
+**Windows users**: If the standard installation doesn't work, you may need additional C++ tools.
+</Warning>
+
+<Steps>
+  <Step title="Install C++ Clang Tools">
+    Install via the Visual Studio Installer:
+    - Download [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/)
+    - Select "C++ Clang tools for Windows"
+  </Step>
+  
+  <Step title="Set LIBCLANG_PATH">
+    Add the environment variable pointing to `libclang.dll`:
+    
+    ```
+    LIBCLANG_PATH="C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\Llvm\x64\bin"
+    ```
+  </Step>
+</Steps>
+
+### Install SnarkOS
+
+<Steps>
+  <Step title="Clone the SnarkOS Repository">
+    Clone the mainnet branch:
+    
+    ```bash
+    git clone --branch mainnet --single-branch https://github.com/ProvableHQ/snarkOS.git
+    cd snarkOS
+    ```
+  </Step>
+  
+  <Step title="Install Ubuntu Dependencies (Ubuntu Only)">
+    If you're on Ubuntu, use the helper script to install dependencies:
+    
+    ```bash
+    ./build_ubuntu.sh
+    ```
+  </Step>
+  
+  <Step title="Build and Install SnarkOS">
+    Install SnarkOS using Cargo:
+    
+    ```bash
+    cargo install --locked --path .
+    ```
+    
+    <Note>
+    The `--locked` flag ensures that the exact dependency versions are used.
+    </Note>
+  </Step>
+  
+  <Step title="Verify Installation">
+    Confirm SnarkOS is installed:
+    
+    ```bash
+    snarkos --version
+    ```
+    
+    You should see the SnarkOS version information.
+  </Step>
+  
+  <Step title="View Available Commands">
+    Check the SnarkOS help menu:
+    
+    ```bash
+    snarkos
+    ```
+  </Step>
+</Steps>
+
+## Verification
+
+After installation, verify that both tools are accessible:
+
+<CodeGroup>
+```bash Check Leo
+leo --version
+```
+
+```bash Check SnarkOS
+snarkos --version
+```
+</CodeGroup>
+
+You should see version information for both tools.
+
+## What's Next?
+
+<CardGroup cols={2}>
+  <Card
+    title="Quick Start Guide"
+    icon="rocket"
+    href="/quick-start/your-first-program"
+  >
+    Build your first Aleo program and deploy it to the testnet
+  </Card>
+  
+  <Card
+    title="Development Environment"
+    icon="code"
+    href="/quick-start/development-environment"
+  >
+    Set up your complete development environment
+  </Card>
+  
+  <Card
+    title="Leo CLI Guide"
+    icon="terminal"
+    href="https://docs.leo-lang.org/cli/overview"
+  >
+    Learn about all Leo CLI commands and options
+  </Card>
+  
+  <Card
+    title="Leo Language Guide"
+    icon="book"
+    href="https://docs.leo-lang.org/language/overview"
+  >
+    Deep dive into Leo syntax and language features
+  </Card>
+</CardGroup>
+
+## Local Network Testing
+
+Before deploying to the testnet, we recommend testing your programs on a local network.
+
+<Note>
+The [Local Development Guide](https://docs.leo-lang.org/guides/devnet) explains how to initialize and deploy programs to a local network for testing.
+</Note>
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Rust version too old">
+    Update Rust to version 1.79 or later:
+    
+    ```bash
+    rustup update
+    ```
+  </Accordion>
+  
+  <Accordion title="Git submodules not initialized">
+    If you cloned without `--recurse-submodules`, initialize them manually:
+    
+    ```bash
+    git submodule update --init --recursive
+    ```
+  </Accordion>
+  
+  <Accordion title="Build fails on Windows">
+    Ensure you have:
+    1. Visual Studio Build Tools installed
+    2. C++ Clang tools selected
+    3. LIBCLANG_PATH environment variable set
+    4. Restarted your terminal after setting environment variables
+  </Accordion>
+  
+  <Accordion title="Command not found after installation">
+    Make sure Cargo's bin directory is in your PATH:
+    
+    ```bash
+    # Add to ~/.bashrc or ~/.zshrc
+    export PATH="$HOME/.cargo/bin:$PATH"
+    ```
+    
+    Then restart your terminal.
+  </Accordion>
+</AccordionGroup>
+
+## Getting Help
+
+If you encounter issues during installation:
+
+- Join the [Aleo Discord](https://discord.com/invite/aleo) for community support
+- Check the [FAQ page](/how-to-get-help) for common questions
+- Visit the [GitHub Issues](https://github.com/ProvableHQ/leo/issues) page to report bugs

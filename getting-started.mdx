@@ -1,0 +1,234 @@
+---
+title: Getting Started with Aleo
+description: Overview of the Aleo ecosystem and development tools for building privacy-preserving applications
+---
+
+# Getting Started with Aleo
+
+Welcome to Aleo! This guide will introduce you to the key components of the Aleo ecosystem and help you understand how to build privacy-preserving decentralized applications.
+
+## What is Aleo?
+
+Aleo is a Layer 1 blockchain platform that enables developers to build fully private applications using zero-knowledge proofs. Unlike traditional blockchains where all data is publicly visible, Aleo allows you to execute program logic while keeping sensitive inputs and outputs completely encrypted.
+
+## The Aleo Ecosystem
+
+The Aleo platform consists of several integrated components that work together to enable privacy-preserving development:
+
+### SnarkOS
+
+**A decentralized operating system for privacy-preserving applications**
+
+[SnarkOS](http://snarkos.org) is the network node implementation for Aleo. It provides:
+
+- **Network Infrastructure**: Run validators, provers, and client nodes
+- **Consensus Mechanism**: Participate in block production and validation
+- **Transaction Processing**: Submit and verify private transactions
+- **Network Communication**: Connect to the Aleo network
+
+<Note>
+SnarkOS is essential for running a node on the Aleo network, whether you're validating transactions, generating proofs, or simply querying blockchain data.
+</Note>
+
+### SnarkVM
+
+**A virtual machine for executing zero-knowledge programs**
+
+[SnarkVM](https://snarkvm.org) is the virtual machine that executes Aleo programs and generates zero-knowledge proofs. Key features:
+
+- **Program Execution**: Run Leo programs and Aleo instructions
+- **Proof Generation**: Create zero-knowledge proofs for private computation
+- **Proof Verification**: Verify the correctness of program executions
+- **Cryptographic Primitives**: Built-in support for encryption, hashing, and signatures
+
+SnarkVM can be used as a Rust library to integrate Aleo functionality into your applications.
+
+### Leo Programming Language
+
+**A statically-typed language for writing private applications**
+
+[Leo](https://leo-lang.org) is a high-level programming language designed specifically for writing zero-knowledge applications on Aleo. It provides:
+
+- **Familiar Syntax**: Similar to Rust and JavaScript for easy adoption
+- **Type Safety**: Catch errors at compile-time
+- **Privacy Primitives**: Built-in support for private and public data
+- **Developer Tools**: CLI, package manager, and testing framework
+
+<CodeGroup>
+```leo Example Leo Program
+program token.aleo {
+    // Define a private token record
+    record token {
+        owner: address,
+        amount: u64,
+    }
+
+    // Mint private tokens
+    transition mint_private(
+        receiver: address,
+        amount: u64,
+    ) -> token {
+        return token {
+            owner: receiver,
+            amount: amount,
+        };
+    }
+
+    // Transfer private tokens
+    transition transfer_private(
+        sender: token,
+        receiver: address,
+        amount: u64,
+    ) -> (token, token) {
+        let difference: u64 = sender.amount - amount;
+
+        let remaining: token = token {
+            owner: sender.owner,
+            amount: difference,
+        };
+
+        let transferred: token = token {
+            owner: receiver,
+            amount: amount,
+        };
+
+        return (remaining, transferred);
+    }
+}
+```
+</CodeGroup>
+
+### Provable SDK
+
+**SDK for building privacy-preserving web and mobile applications**
+
+The [Provable SDK](https://github.com/ProvableHQ/sdk) is a TypeScript/JavaScript SDK that allows you to:
+
+- **Create Accounts**: Generate and manage Aleo accounts
+- **Execute Programs**: Run Aleo programs from web applications
+- **Build Transactions**: Create deployment and execution transactions
+- **Query Network**: Interact with the Aleo blockchain
+- **Manage Records**: Handle private encrypted data structures
+
+<CodeGroup>
+```typescript Example SDK Usage
+import { Account, ProgramManager, AleoNetworkClient } from '@provablehq/sdk';
+
+// Create a new account
+const account = new Account();
+console.log('Address:', account.address());
+
+// Connect to the network
+const networkClient = new AleoNetworkClient('https://api.explorer.provable.com/v1');
+const programManager = new ProgramManager(
+  'https://api.explorer.provable.com/v1',
+  undefined,
+  undefined
+);
+
+// Execute a program function
+const executionResponse = await programManager.execute(
+  'hello.aleo',
+  'main',
+  ['5u32', '5u32'],
+  account.privateKey()
+);
+```
+</CodeGroup>
+
+## Development Tools
+
+### Leo Playground
+
+[Leo Playground](http://play.leo-lang.org) is a browser-based IDE that lets you:
+
+- Write and compile Leo programs without local installation
+- Deploy programs directly to the Aleo Testnet
+- Execute program functions and view results
+- Test with example programs and templates
+
+<Tip>
+The Leo Playground is the fastest way to get started with Aleo. No installation required!
+</Tip>
+
+### Provable Explorer
+
+[Provable Explorer](https://explorer.provable.com) provides:
+
+- **Transaction Monitoring**: View transaction details and status
+- **Block Information**: Explore blocks and their contents
+- **Program Registry**: Browse deployed programs on the network
+- **Account Balances**: Check credit balances and transaction history
+
+## Understanding Privacy on Aleo
+
+Aleo provides several mechanisms for managing private and public data:
+
+### Records
+
+Records are encrypted data structures that represent private state. They:
+
+- Are stored as ciphertext on the blockchain
+- Can only be decrypted by the owner using their view key
+- Are consumed when used as inputs to transitions
+- Enable fully private transactions
+
+### Mappings
+
+Mappings are public key-value stores that:
+
+- Store persistent on-chain state
+- Are publicly readable by anyone
+- Can be updated by program functions
+- Are useful for public data like balances or registries
+
+### Hybrid Privacy
+
+Aleo programs can combine both private and public state, allowing you to:
+
+- Keep sensitive data private while exposing necessary public information
+- Build applications with mixed privacy requirements
+- Optimize costs by using public storage where privacy isn't needed
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Quick Start Tutorial"
+    icon="rocket"
+    href="/quick-start/your-first-program"
+  >
+    Deploy your first program to the Aleo Testnet
+  </Card>
+  
+  <Card
+    title="Install Development Tools"
+    icon="download"
+    href="/installation"
+  >
+    Set up Leo and SnarkOS on your local machine
+  </Card>
+  
+  <Card
+    title="Development Environment"
+    icon="code"
+    href="/quick-start/development-environment"
+  >
+    Configure your complete development setup
+  </Card>
+  
+  <Card
+    title="Get Help"
+    icon="question"
+    href="/how-to-get-help"
+  >
+    Join the community and get support
+  </Card>
+</CardGroup>
+
+## Resources
+
+- [Aleo Developer Docs](https://developer.aleo.org) - Comprehensive developer documentation
+- [Leo Language Guide](https://docs.leo-lang.org) - Complete Leo programming guide
+- [GitHub Repository](https://github.com/AleoNet) - Source code and examples
+- [Discord Community](https://discord.com/invite/aleo) - Get help and connect with developers
