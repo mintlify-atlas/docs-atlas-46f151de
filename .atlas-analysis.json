@@ -1,0 +1,198 @@
+{
+  "projectType": "general",
+  "projectName": "Aleo Network",
+  "projectDescription": "A comprehensive guide to building privacy-preserving applications on the Aleo blockchain using zero-knowledge proofs.",
+  "theme": "aspen",
+  "primaryColor": "#0047FF",
+  "lightColor": "#4D8CFF",
+  "darkColor": "#002B99",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Getting Started",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "index",
+              "getting-started",
+              "installation",
+              "how-to-get-help"
+            ]
+          },
+          {
+            "group": "Quick Start",
+            "pages": [
+              "quick-start/your-first-program",
+              "quick-start/development-environment"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Concepts",
+        "groups": [
+          {
+            "group": "Fundamentals",
+            "pages": [
+              "concepts/fundamentals/accounts",
+              "concepts/fundamentals/programs",
+              "concepts/fundamentals/records",
+              "concepts/fundamentals/transactions",
+              "concepts/fundamentals/transaction-fees",
+              "concepts/fundamentals/transitions",
+              "concepts/fundamentals/blocks",
+              "concepts/fundamentals/public-private",
+              "concepts/fundamentals/async",
+              "concepts/fundamentals/credits"
+            ]
+          },
+          {
+            "group": "Network",
+            "pages": [
+              "concepts/network/aleo-network",
+              "concepts/network/core-architecture",
+              "concepts/network/snarkos",
+              "concepts/network/snarkvm",
+              "concepts/network/validators",
+              "concepts/network/provers",
+              "concepts/network/client",
+              "concepts/network/consensus",
+              "concepts/network/staking"
+            ]
+          },
+          {
+            "group": "Advanced",
+            "pages": [
+              "concepts/advanced/overview",
+              "concepts/advanced/intro-to-zksnark",
+              "concepts/advanced/aleo-account-keys",
+              "concepts/advanced/r1cs",
+              "concepts/advanced/inclusion-proof",
+              "concepts/advanced/aleo-curves/overview",
+              "concepts/advanced/aleo-curves/edwards-bls12",
+              "concepts/advanced/aleo-curves/bls12-377"
+            ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "concepts/specifications",
+              "concepts/audits"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Aleo Instructions",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "aleo/overview",
+              "aleo/installation",
+              "aleo/tooling"
+            ]
+          },
+          {
+            "group": "Language",
+            "pages": [
+              "aleo/program-structure",
+              "aleo/language-guide",
+              "aleo/grammar"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "aleo/opcodes",
+              "aleo/operands"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "SDK",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "sdk/overview",
+              "sdk/create-leo-app"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "sdk/guides/getting-started",
+              "sdk/guides/create-account",
+              "sdk/guides/deploy-programs",
+              "sdk/guides/execute-programs",
+              "sdk/guides/transfer-credits",
+              "sdk/guides/managing-state",
+              "sdk/guides/querying-network",
+              "sdk/guides/hash-functions"
+            ]
+          },
+          {
+            "group": "Services",
+            "pages": [
+              "sdk/delegate-proving",
+              "sdk/record-scanning"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "sdk/typescript-reference",
+              "sdk/wasm-reference",
+              "sdk/api-specification"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Development",
+            "pages": [
+              "guides/program-upgradability",
+              "guides/solidity-to-leo",
+              "guides/standards"
+            ]
+          },
+          {
+            "group": "Community",
+            "pages": [
+              "guides/contributing",
+              "guides/faqs"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Privacy-preserving blockchain with zero-knowledge proofs",
+    "Leo programming language for ZK applications",
+    "SnarkOS decentralized operating system",
+    "SnarkVM virtual machine for private computation",
+    "Provable SDK for JavaScript/TypeScript integration",
+    "Native support for public and private state",
+    "Account-based model with encrypted records",
+    "Proof delegation and record scanning services"
+  ],
+  "publicApiSurface": [
+    "Account creation and management",
+    "Program deployment and execution",
+    "Transaction creation and submission",
+    "Record encryption and decryption",
+    "Credit transfers (public and private)",
+    "Network state querying",
+    "Hash functions (Poseidon, BHP)",
+    "Proof generation and verification",
+    "Delegated proving service",
+    "Record scanning service"
+  ]
+}
